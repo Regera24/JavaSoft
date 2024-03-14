@@ -39,7 +39,11 @@ public class JDBC2 {
                     String id = rs.getString(2);
                     String name = rs.getString(3);
                     double price = rs.getDouble(4);
-                    soldCar x = new soldCar(id,name,price,date);
+                    String cusID = rs.getString(5);
+                    String cusName = rs.getString(6);
+                    String phoneNum = rs.getString(7);
+                    Customer cus = new Customer(cusID,cusName,phoneNum);
+                    soldCar x = new soldCar(id,name,price,date,cus);
                     arr.add(x);
                 }
 

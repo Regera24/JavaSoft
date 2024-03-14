@@ -5,32 +5,32 @@
  */
 package collection_practice;
 
-import java.sql.Date;
-
 /**
  *
  * @author h
  */
-public class soldCar {
+public class Customer {
     private String id;
     private String name;
-    private double price;
-    private Date date;
-    private Customer cus;
+    private String phoneNum;
 
-    public soldCar(String id, String name, double price, Date date, Customer cus) {
+    public Customer(String id, String name, String phoneNum) {
         this.id = id;
         this.name = name;
-        this.price = price;
-        this.date = date;
-        this.cus = cus;
+        this.phoneNum = phoneNum;
     }
 
-    public Customer getCus() {
-        return cus;
+    public void setId(String id) {
+        this.id = id;
     }
 
-    
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setPhoneNum(String phoneNum) {
+        this.phoneNum = phoneNum;
+    }
 
     public String getId() {
         return id;
@@ -40,12 +40,8 @@ public class soldCar {
         return name;
     }
 
-    public double getPrice() {
-        return price;
-    }
-
-    public Date getDate() {
-        return date;
+    public String getPhoneNum() {
+        return phoneNum;
     }
     
 }

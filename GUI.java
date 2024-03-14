@@ -145,7 +145,7 @@ public class GUI extends javax.swing.JFrame {
         });
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel2.setText("                                     Email: 4Wheel@contact.com.vn                                                        Website: https/4wheel.com.vn                                                                                      Hotline: 0988888999");
+        jLabel2.setText("                                     Email: 4Wheel@contact.com.vn                                                        Website: https://4wheel.com.vn                                                                                      Hotline: 0988888999");
 
         jLabel3.setIcon(new javax.swing.ImageIcon("C:\\Users\\h\\Downloads\\Lux-a.jpg")); // NOI18N
         jLabel3.setText("jLabel3");
@@ -188,6 +188,7 @@ public class GUI extends javax.swing.JFrame {
         jMenuBar1.add(jMenu3);
 
         jMenu5.setText("Tools");
+        jMenu5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jMenu5.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jMenu5MouseClicked(evt);
@@ -196,6 +197,7 @@ public class GUI extends javax.swing.JFrame {
         jMenuBar1.add(jMenu5);
 
         jMenu6.setText("Revenue");
+        jMenu6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jMenu6.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jMenu6MouseClicked(evt);

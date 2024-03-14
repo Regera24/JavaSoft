@@ -72,7 +72,7 @@ public class JDBC {
         }
     }
     
-    public void sell(String id){
+    public void sell(String id,String cusID,String cusName,String cusNum){
         try {
             Connection con = getConnection();
             if (con != null) {
@@ -80,17 +80,20 @@ public class JDBC {
                 st1.setString(1, id);;
                 ResultSet rs = st1.executeQuery();
                 PreparedStatement st = con.prepareStatement("update car_table set sales = ?, inventory = ? where id = ?");
-                PreparedStatement st2 = con.prepareStatement("insert into sales_table values (?,?,?,?)");
+                PreparedStatement st2 = con.prepareStatement("insert into sales_table values (?,?,?,?,?,?,?)");
                 while(rs.next()){
                   st.setInt(1, rs.getInt(9)+1);
                   st.setInt(2, rs.getInt(10)-1);
                   st.setString(3, id);
                   st.executeUpdate();
-                  st2.setString(1, rs.getString(1));
-                  st2.setString(2, rs.getString(2));
+                  st2.setString(2, rs.getString(1));
+                  st2.setString(3, rs.getString(2));
                   Date date = new Date(System.currentTimeMillis());
-                  st2.setDate(3,date);
+                  st2.setDate(1,date);
                   st2.setDouble(4, rs.getDouble(5));
+                  st2.setString(5, cusID);
+                  st2.setString(6, cusName);
+                  st2.setString(7, cusNum);
                   st2.executeUpdate();
                 }
             }
