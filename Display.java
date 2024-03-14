@@ -5,6 +5,11 @@
  */
 package collection_practice;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.stream.Collectors;
 import javax.swing.table.DefaultTableModel;
@@ -20,29 +25,10 @@ public class Display extends javax.swing.JFrame {
      */
     public Display() {
         initComponents();
-        initCars();
         AddIntoTable();
     }
-    
-    ArrayList<Car> arr = new ArrayList<>();
-    private void initCars() {
-        Car a = new Car("1","Chevrolet" ,"Cruze", "Pre", 1000000000, "Red", "2019","2.0L",30,50);
-        Car b = new Car("2","Ford" ,"Ranger", "Pre", 800000000, "Black", "2020","V3",50,50);
-        Car c = new Car("3","Mercedes" ,"C300", "Base", 2000000000, "White", "2022","V8",100,100);
-        Car d = new Car("4","Honda", "Civic", "Base", 900000000, "Blue", "2021","Turbo",20,20);
-        Car e = new Car("5","Kia", "Morning", "Pre", 400000000, "Red", "2023","1.0L",200,100);
-        Car f = new Car("6", "Vinfast", "Lux A", "Base", 600000000, "Black", "2022","Turbo",500,100);
-        Car g = new Car("7","Chevrolet","Cruze","Pre", 1000000000, "Blue", "2019","V4",200,100);
-
-        arr.add(a);
-        arr.add(b);
-        arr.add(c);
-        arr.add(d);
-        arr.add(e);
-        arr.add(f);
-        arr.add(g);
-        System.out.println(arr);
-    };  
+    JDBC j = new JDBC();
+    ArrayList<Car> arr = j.getData();
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -208,18 +194,18 @@ public class Display extends javax.swing.JFrame {
     private void jComboBox3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox3ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboBox3ActionPerformed
-    
-    public void AddIntoTable(){
-        DefaultTableModel model = (DefaultTableModel)jTable1.getModel();
+
+    public void AddIntoTable() {
+        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
         model.setRowCount(0);
-        for(Car car : arr){
-            Object[] d = {car.getID(),car.getBrand(),car.getName(),car.getVersion(),car.getPrice(),car.getColor(),car.getDate(),car.getEngine(),car.getSales(),car.getInventory()};
+        for (Car car : arr) {
+            Object[] d = {car.getID(), car.getBrand(), car.getName(), car.getVersion(), car.getPrice(), car.getColor(), car.getDate(), car.getEngine(), car.getSales(), car.getInventory()};
             model.addRow(d);
         }
     }
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        
-        DefaultTableModel model = (DefaultTableModel)jTable1.getModel();
+
+        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
         model.setRowCount(0);
         String content1 = jComboBox1.getSelectedItem().toString();
         String content2 = jComboBox2.getSelectedItem().toString();
@@ -234,11 +220,11 @@ public class Display extends javax.swing.JFrame {
         contentArr.add(content4);
         contentArr.add(content5);
         contentArr.add(content6);
-        
+
         ArrayList<Car> arr2 = new ArrayList<>();
         arr2.addAll(arr);
-        
-        
+
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
